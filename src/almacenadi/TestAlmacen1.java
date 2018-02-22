@@ -17,7 +17,7 @@ public class TestAlmacen1 {
 		mostrarMenu();
 		opcion = sc.nextInt();
 		while (opcion != 0) {
-			procesarOpcion(opcion, prueba);
+			procesarOpcion(opcion, prueba,sc);
 			mostrarMenu();
 			opcion = sc.nextInt();
 		}
@@ -45,19 +45,25 @@ public class TestAlmacen1 {
 	 * @param parAlmacen objeto con el que se ejecuta la accion
 	 */
 	
-	static void procesarOpcion(int opcion, Almacen1 parAlmacen) {
+	static void procesarOpcion(int opcion, Almacen1 parAlmacen, Scanner sc) {
 		switch (opcion) {
 		case 1:
-			 System.out.println(parAlmacen);
+			 System.out.println(parAlmacen.toString());
 			 break;
 		case 2:
-			 parAlmacen.ponValor(15);
+			 System.out.println("Dame un numero para almacenar");
+			 int num = sc.nextInt();
+			 parAlmacen.ponValor(num);
 			 break;
 		case 3:
-			System.out.println(parAlmacen.estaValor(15));
+			System.out.println("Dame un numero para ver si esta almacenado");
+			num = sc.nextInt();
+			System.out.println(parAlmacen.estaValor(num));
 			break;
 		case 4:
-			parAlmacen.sacarValor(15);
+			System.out.println("Dame un numero para sacar del almacen");
+			num = sc.nextInt();
+			parAlmacen.sacarValor(num);
 			break;
 		case 5:	
 			System.out.println ("Posiciones ocupadas = " + parAlmacen.numPosicionesOcupadas());

@@ -37,14 +37,15 @@ public class Almacen1 {
 	 */
 	public String toString (){
 	String valores = "";
-	for (int i = 0 ; i<tvalores.length;i++)
+	for (int i = 0;i<tvalores.length;i++)
 	{
-		if (tvalores[i] != Almacen1.LIBRE)
+		if (tvalores[i] != LIBRE)
 		{
 			valores = "La tabla tiene {" + tvalores[i] + "}";
 		}
+
 	}
-		return valores;
+	return valores;
 	}
 	
 	/**
@@ -137,7 +138,16 @@ public class Almacen1 {
 	/** 
 	 * @return si el almacen esta lleno
 	 */
-	public boolean estaLleno (){	
-	return false;
+	public boolean estaLleno (){
+		boolean lleno = true;
+		for (int i=0;i<tvalores.length;i++)
+		{
+			if (tvalores[i] == LIBRE)
+			{
+				lleno = false;
+				break;
+			}
+		}
+	return lleno;
 	}
 }
